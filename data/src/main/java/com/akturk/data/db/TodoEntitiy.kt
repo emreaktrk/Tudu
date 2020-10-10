@@ -1,4 +1,4 @@
-package com.akturk.data.model
+package com.akturk.data.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -24,5 +24,5 @@ data class TodoEntity(
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int? = null
+    var id: Long? = null
 }

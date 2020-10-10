@@ -1,33 +1,39 @@
 package com.akturk.data
 
-import com.akturk.data.model.TodoEntity
+import com.akturk.data.db.TagEntity
+import com.akturk.data.db.TodoDao
+import com.akturk.data.db.TodoEntity
+import com.akturk.data.model.TodoWithTags
 import kotlinx.coroutines.flow.Flow
 import org.apache.commons.lang3.RandomStringUtils
 import org.apache.commons.lang3.RandomUtils
 
 class LocalTodoSource(private val dao: TodoDao) : ITodoSource {
 
-    override fun items(): Flow<List<TodoEntity>> {
+    override fun items(): Flow<List<TodoWithTags>> {
         return dao.items()
     }
 
-    override fun insert(item: TodoEntity) {
+    override fun insert(item: TodoWithTags) {
         return dao.insert(item)
     }
 
-    override fun random(): TodoEntity {
-        return TodoEntity(
-            title = RandomStringUtils.random(10, "abcdefghijklmnopqrstuvwxyz "),
-            description = RandomStringUtils.random(50, "abcdefghijklmnopqrstuvwxyz "),
-//            tags = mutableSetOf<Tag>().apply {
-//                val iteration = RandomUtils.nextInt(0, 5)
-//                for (i in 0 until iteration) {
-//                    val word = RandomStringUtils.random(3)
-//                    add(word)
-//                }
-//            },
-            lat = RandomUtils.nextDouble(),
-            lng = RandomUtils.nextDouble()
+    override fun random(): TodoWithTags {
+        return TodoWithTags(
+            todo = TodoEntity(
+                title = RandomStringUtils.random(10, "abcdefghijklmnopqrstuvwxyz "),
+                description = RandomStringUtils.random(50, "abcdefghijklmnopqrstuvwxyz "),
+
+                lat = RandomUtils.nextDouble(),
+                lng = RandomUtils.nextDouble()
+            ),
+            tags = mutableListOf<TagEntity>().apply {
+                val count = RandomUtils.nextInt(0, 10)
+                for (index in 0..count) {
+                    val tag = TagEntity(RandomStringUtils.random(8, "abcdefghijklmnopqrstuvwxyz "))
+                    add(tag)
+                }
+            }
         )
     }
 
@@ -37,7 +43,7 @@ class LocalTodoSource(private val dao: TodoDao) : ITodoSource {
         }
     }
 
-    override fun filter(search: String): Flow<List<TodoEntity>> {
+    override fun filter(search: String): Flow<List<TodoWithTags>> {
         return dao.filter(search)
     }
 }

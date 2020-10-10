@@ -9,8 +9,8 @@ class AddItemUseCase @Inject constructor(private val repo: ITodoRepository) :
 
     override suspend fun invoke(delegate: () -> TodoItem) {
         with(TodoEntityMapper()) {
-            val entity = transform(delegate())
-            repo.insert(entity)
+            val item = transform(delegate())
+            repo.insert(item)
         }
     }
 }

@@ -2,6 +2,8 @@ package com.akturk.data
 
 import android.content.Context
 import androidx.room.Room
+import com.akturk.data.db.TodoDao
+import com.akturk.data.db.TodoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
