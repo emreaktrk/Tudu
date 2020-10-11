@@ -21,7 +21,7 @@ class LocalTodoSource(private val dao: TodoDao) : ITodoSource {
         return TodoWithTags(
             todo = TodoEntity(
                 title = RandomStringUtils.random(10, "abcdefghijklmnopqrstuvwxyz "),
-                description = RandomStringUtils.random(50, "abcdefghijklmnopqrstuvwxyz "),
+                description = RandomStringUtils.random(1000, 50, 1000, true, false),
 
                 lat = RandomUtils.nextDouble(),
                 lng = RandomUtils.nextDouble()

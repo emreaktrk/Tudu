@@ -2,6 +2,7 @@ package com.akturk.tudu
 
 import android.app.Application
 import android.os.Bundle
+import com.akturk.domain.model.TodoItem
 import com.akturk.tudu.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.FlowPreview
@@ -16,16 +17,24 @@ class MainActivity : BaseActivity(R.layout.activity_main),
 
     override val binding: ActivityMainBinding by invoke(this, R.layout.activity_main)
 
+    private val adapter = TodoAdapter()
+
     @FlowPreview
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.recycler.adapter = adapter
         binding.lifecycleOwner = this
         binding.vm = viewModel
-        viewModel.presenter = this
 
+        viewModel.presenter = this
         viewModel.observe()
     }
 
     override fun presentApplication(): Application = application
+
+    override fun presentItems(items: List<TodoItem>) {
+        adapter.items = items
+        binding.recycler.scrollToPosition(adapter.itemCount - 1)
+    }
 }

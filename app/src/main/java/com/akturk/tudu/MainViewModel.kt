@@ -1,12 +1,12 @@
 package com.akturk.tudu
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.akturk.domain.DomainEntryPoint
+import com.akturk.domain.model.TodoItem
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
@@ -19,7 +19,6 @@ class MainViewModel : ViewModel() {
     var presenter: Presenter? = null
     val search = MutableLiveData("")
 
-
     @FlowPreview
     fun observe() {
         presenter?.presentApplication()?.let {
@@ -29,7 +28,9 @@ class MainViewModel : ViewModel() {
                 search.asFlow().debounce(1000).collect { sample ->
                     useCase.search = sample ?: ""
                     useCase.invoke { result ->
-                        Log.v("RESULT", "Total item size is ${result.size}")
+                        viewModelScope.launch(Dispatchers.Main) {
+                            presenter?.presentItems(result)
+                        }
                     }
                 }
             }
@@ -53,5 +54,6 @@ class MainViewModel : ViewModel() {
 
     interface Presenter {
         fun presentApplication(): Application
+        fun presentItems(items: List<TodoItem>)
     }
 }
