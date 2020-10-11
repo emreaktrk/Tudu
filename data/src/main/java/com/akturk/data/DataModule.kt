@@ -21,6 +21,7 @@ object DataModule {
         return Room
             .databaseBuilder(context, TodoDatabase::class.java, "TODO_DB")
             .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
             .build()
     }
 

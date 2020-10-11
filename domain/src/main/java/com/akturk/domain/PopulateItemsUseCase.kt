@@ -9,5 +9,6 @@ class PopulateItemsUseCase(private val repo: ITodoRepository) : IUseCase<() -> U
 
     override suspend fun invoke(delegate: () -> Unit) {
         repo.populate(iteration)
+        delegate()
     }
 }

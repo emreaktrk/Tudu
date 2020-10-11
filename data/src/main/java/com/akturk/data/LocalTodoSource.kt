@@ -4,13 +4,12 @@ import com.akturk.data.db.TagEntity
 import com.akturk.data.db.TodoDao
 import com.akturk.data.db.TodoEntity
 import com.akturk.data.model.TodoWithTags
-import kotlinx.coroutines.flow.Flow
 import org.apache.commons.lang3.RandomStringUtils
 import org.apache.commons.lang3.RandomUtils
 
 class LocalTodoSource(private val dao: TodoDao) : ITodoSource {
 
-    override fun items(): Flow<List<TodoWithTags>> {
+    override fun items(): List<TodoWithTags> {
         return dao.items()
     }
 
@@ -43,7 +42,7 @@ class LocalTodoSource(private val dao: TodoDao) : ITodoSource {
         }
     }
 
-    override fun filter(search: String): Flow<List<TodoWithTags>> {
+    override fun filter(search: String): List<TodoWithTags> {
         return dao.filter(search)
     }
 }

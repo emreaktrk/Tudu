@@ -2,19 +2,16 @@ package com.akturk.domain
 
 import com.akturk.data.ITodoRepository
 import com.akturk.domain.model.TodoItem
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.FlowPreview
 import javax.inject.Inject
 
 class GetItemsUseCase @Inject constructor(private val repo: ITodoRepository) :
-    IUseCase<(result: Flow<List<TodoItem>>) -> Unit> {
+    IUseCase<(result: List<TodoItem>) -> Unit> {
 
-    override suspend fun invoke(delegate: (result: Flow<List<TodoItem>>) -> Unit) {
+    @FlowPreview
+    override suspend fun invoke(delegate: (result: List<TodoItem>) -> Unit) {
         with(TodoItemMapper()) {
-            val items = repo.items().map {
-                return@map it.map(::transform)
-            }
-
+            val items = repo.items().map(::transform)
             delegate(items)
         }
     }

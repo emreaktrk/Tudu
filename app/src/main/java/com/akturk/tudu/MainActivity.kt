@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.Bundle
 import com.akturk.tudu.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.FlowPreview
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity(R.layout.activity_main),
@@ -15,14 +16,15 @@ class MainActivity : BaseActivity(R.layout.activity_main),
 
     override val binding: ActivityMainBinding by invoke(this, R.layout.activity_main)
 
+    @FlowPreview
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.lifecycleOwner = this
         binding.vm = viewModel
         viewModel.presenter = this
 
-        viewModel.observeItems()
-        viewModel.observeSearch()
+        viewModel.observe()
     }
 
     override fun presentApplication(): Application = application

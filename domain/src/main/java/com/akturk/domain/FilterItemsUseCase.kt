@@ -1,20 +1,20 @@
 package com.akturk.domain
 
 import com.akturk.data.ITodoRepository
-import com.akturk.data.model.TodoWithTags
-import kotlinx.coroutines.flow.map
+import com.akturk.domain.model.TodoItem
+import kotlinx.coroutines.FlowPreview
 import javax.inject.Inject
 
 class FilterItemsUseCase @Inject constructor(private val repo: ITodoRepository) :
-    IUseCase<(List<TodoWithTags>) -> Unit> {
+    IUseCase<(result: List<TodoItem>) -> Unit> {
 
-    lateinit var search: String
+    var search = ""
 
-    override suspend fun invoke(delegate: (List<TodoWithTags>) -> Unit) {
+    @FlowPreview
+    override suspend fun invoke(delegate: (result: List<TodoItem>) -> Unit) {
         with(TodoItemMapper()) {
-            repo.filter(search).map {
-                return@map it.map(::transform)
-            }
+            val result = repo.filter(search).map(::transform)
+            delegate(result)
         }
     }
 }
