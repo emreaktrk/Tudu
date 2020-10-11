@@ -12,7 +12,7 @@ interface TodoDao {
     @Query("SELECT * FROM todo")
     fun items(): Flow<List<TodoWithTags>>
 
-    @Query("SELECT * FROM todo WHERE title LIKE '%'||:keyword||'%'")
+    @Query("SELECT * FROM todo LEFT JOIN tags ON todo.id = tags.todo_id WHERE todo.title LIKE '%'||:keyword||'%'")
     fun filter(keyword: String): Flow<List<TodoWithTags>>
 
     fun insert(item: TodoWithTags) {

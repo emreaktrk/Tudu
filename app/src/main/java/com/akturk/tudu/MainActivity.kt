@@ -21,7 +21,8 @@ class MainActivity : BaseActivity(R.layout.activity_main),
         binding.vm = viewModel
         viewModel.presenter = this
 
-        viewModel.observe()
+        viewModel.observeItems()
+        viewModel.observeSearch()
     }
 
     override fun presentApplication(): Application = application

@@ -9,4 +9,5 @@ import dagger.hilt.android.components.ApplicationComponent
 interface DomainEntryPoint {
     fun getPopulateUseCase(): PopulateItemsUseCase
     fun getItemsUseCase(): GetItemsUseCase
+    fun getFilterUseCase(): FilterItemsUseCase
 }
