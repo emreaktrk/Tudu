@@ -2,7 +2,7 @@
 
 > Geçikme için özür dilerim.. Geçikmemin de sebebini açıklamak isterim
  Mevcut işimin yoğunluğuna rahmen size kaliteli bir proje teslim etmek istedim. 
- Bunun için projelerde de kullanılabilecek kalitedeki yapıları kullanayı uygun gördüm.
+ Bunun için enterprise projelerde de kullanılabilecek kalitedeki yapıları kullanayı uygun gördüm.
  In memory'de başladığım data katmanı Database ile değiştirdim. 
  DDD ile birlikte MVVM kullandım. Olabildiğince reactive app yazmaya çalıştım.
 
