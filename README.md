@@ -6,6 +6,9 @@
  In memory'de başladığım data katmanı Database ile değiştirdim. 
  DDD ile birlikte MVVM kullandım. Olabildiğince reactive app yazmaya çalıştım.
 
+![Arch Diagram](art/arch.png?raw=true "Arch Diagram")
+![Depdency Diagram](art/dependency.png?raw=true "Dependency Diagram")
+
 Aşağıda liste halinde belirtmek gerekirse;
 
 
