@@ -8,6 +8,7 @@
 
 ![Arch Diagram](art/arch.png?raw=true "Arch Diagram")
 ![Depdency Diagram](art/dependency.png?raw=true "Dependency Diagram")
+![App](art/vid.gif?raw=true "App")
 
 Aşağıda liste halinde belirtmek gerekirse;
 
