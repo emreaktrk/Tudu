@@ -20,7 +20,9 @@
   ve App katmanına UI'da gösterilmesi için iletilir.
 
 ## App
-> Projemizin executable module'üdür.
+> Projemizin executable module'üdür. UI'da buton tıklaması ile başlayan süreçte
+  Data Binding ile ViewModel'da bir func call edilir. Inject edilen UseCase'ler
+  kullanılır.
 
 ## Presentation
 > App'i beslemek için UI componentlerinin geliştirildiği module'dür.
