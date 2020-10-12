@@ -58,3 +58,5 @@ Aşağıda liste halinde belirtmek gerekirse;
   - Staging
   - Map
   - Atomic Design UI Components
+
+Tekrardan gecikme için kusura bakmayın. Sizin için de uygun ise eksik yerleri de geliştirip bir projeyi kez daha göndermek isterim.
