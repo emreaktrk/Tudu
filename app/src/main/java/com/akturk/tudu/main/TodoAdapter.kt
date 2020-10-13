@@ -1,4 +1,4 @@
-package com.akturk.tudu
+package com.akturk.tudu.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.akturk.domain.model.TodoItem
 import com.akturk.tudu.databinding.ItemTodoBinding
 
-class TodoAdapter() : RecyclerView.Adapter<TodoAdapter.Holder>() {
+class TodoAdapter : RecyclerView.Adapter<TodoAdapter.Holder>() {
 
     var items: List<TodoItem> = listOf()
         set(value) {

@@ -19,4 +19,9 @@ object DomainModule {
     fun provideGetItemsUseCase(repo: ITodoRepository): GetItemsUseCase {
         return GetItemsUseCase(repo)
     }
+
+    @Provides
+    fun provideAddItemUseCase(repo: ITodoRepository): AddItemUseCase {
+        return AddItemUseCase(repo)
+    }
 }

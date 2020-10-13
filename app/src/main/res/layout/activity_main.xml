@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".main.MainActivity">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -27,16 +27,30 @@
             tools:listitem="@layout/item_todo" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/populate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
-            android:onClick="@{() -> vm.populate(100)}"
+            android:onClick="@{() -> vm.populate(10)}"
             android:text="Populate"
             app:icon="@drawable/ic_populate"
             app:iconGravity="end"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/add"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:onClick="@{() -> vm.add()}"
+            android:text="Add"
+            app:icon="@drawable/ic_populate"
+            app:iconGravity="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/populate" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -61,7 +75,7 @@
 
         <variable
             name="vm"
-            type="com.akturk.tudu.MainViewModel" />
+            type="com.akturk.tudu.main.MainViewModel" />
     </data>
 
 </layout>

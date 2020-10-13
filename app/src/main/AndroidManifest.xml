@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.akturk.tudu">
+
 
     <application
         android:name=".App"
@@ -11,13 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.Tudu">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".add.AddActivity" />
+
+        <receiver
+            android:name=".add.AlarmReceiver"
+            android:exported="true"
+            android:permission="COM.AKTURK.TUDU.PERMISSION.ALARM"
+            android:process=":remote" />
+
     </application>
+
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK"
+        tools:ignore="ManifestOrder" />
 
 </manifest>

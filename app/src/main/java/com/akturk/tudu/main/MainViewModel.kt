@@ -1,4 +1,4 @@
-package com.akturk.tudu
+package com.akturk.tudu.main
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel() {
 
     var presenter: Presenter? = null
-    val search = MutableLiveData("")
+    val search = MutableLiveData<String>()
 
     @FlowPreview
     fun observe() {
@@ -37,6 +37,11 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    @FlowPreview
+    fun clearSearch() {
+        search.value = null
+    }
+
     fun populate(iteration: Int) {
         presenter?.presentApplication()?.let {
             val entryPoint = EntryPointAccessors.fromApplication(it, DomainEntryPoint::class.java)
@@ -52,8 +57,13 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    fun add() {
+        presenter?.presentAddScreen()
+    }
+
     interface Presenter {
         fun presentApplication(): Application
         fun presentItems(items: List<TodoItem>)
+        fun presentAddScreen()
     }
 }

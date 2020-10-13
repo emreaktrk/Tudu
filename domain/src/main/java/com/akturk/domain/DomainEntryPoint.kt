@@ -10,4 +10,5 @@ interface DomainEntryPoint {
     fun getPopulateUseCase(): PopulateItemsUseCase
     fun getItemsUseCase(): GetItemsUseCase
     fun getFilterUseCase(): FilterItemsUseCase
+    fun getAddUseCase(): AddItemUseCase
 }

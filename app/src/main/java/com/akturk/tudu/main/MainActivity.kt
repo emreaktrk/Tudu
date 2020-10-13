@@ -1,8 +1,13 @@
-package com.akturk.tudu
+package com.akturk.tudu.main
 
 import android.app.Application
 import android.os.Bundle
 import com.akturk.domain.model.TodoItem
+import com.akturk.tudu.BaseActivity
+import com.akturk.tudu.BindingSupport
+import com.akturk.tudu.R
+import com.akturk.tudu.ViewModelSupport
+import com.akturk.tudu.add.AddActivity
 import com.akturk.tudu.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.FlowPreview
@@ -31,10 +36,21 @@ class MainActivity : BaseActivity(R.layout.activity_main),
         viewModel.observe()
     }
 
+    @FlowPreview
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.clearSearch()
+    }
+
     override fun presentApplication(): Application = application
 
     override fun presentItems(items: List<TodoItem>) {
         adapter.items = items
         binding.recycler.scrollToPosition(adapter.itemCount - 1)
+    }
+
+    override fun presentAddScreen() {
+        AddActivity.start(this)
     }
 }
