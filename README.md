@@ -1,5 +1,6 @@
 ## UPDATED
 > Todo ekleme ekranı ve alarm özelliği eklendi.
+> Staging.
 
 # Tudu
 
@@ -55,9 +56,5 @@ Aşağıda liste halinde belirtmek gerekirse;
   Aynı şekilde Database üzerinde Flow ve Coroutines ile threading ve Observable yapılar kuruldu.
   - Alarm Manager
   - Todo add screen
- 
-# In progress
-  - Staging
-  - Map
 
 Tekrardan gecikme için kusura bakmayın. Sizin için de uygun ise eksik yerleri de geliştirip bir projeyi kez daha göndermek isterim.
