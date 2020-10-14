@@ -1,6 +1,6 @@
 ## UPDATED
-> Todo ekleme ekranı ve alarm özelliği eklendi.
-> Staging.
+- Todo ekleme ekranı ve alarm özelliği eklendi.
+- Staging
 
 # Tudu
 
