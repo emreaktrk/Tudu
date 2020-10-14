@@ -1,3 +1,6 @@
+## UPDATED
+> Todo ekleme ekranı ve alarm özelliği eklendi.
+
 # Tudu
 
 > Geçikme için özür dilerim.. Geçikmemin de sebebini açıklamak isterim
@@ -50,13 +53,11 @@ Aşağıda liste halinde belirtmek gerekirse;
   - Data katmanında repository pattern kullanıdı. 
   Room ile Database (One to Many relationlar dahil) geliştirilmesi yapıldı. 
   Aynı şekilde Database üzerinde Flow ve Coroutines ile threading ve Observable yapılar kuruldu.
+  - Alarm Manager
+  - Todo add screen
  
 # In progress
-
-  - Todo add screen
-  - Alarm Manager
   - Staging
   - Map
-  - Atomic Design UI Components
 
 Tekrardan gecikme için kusura bakmayın. Sizin için de uygun ise eksik yerleri de geliştirip bir projeyi kez daha göndermek isterim.
