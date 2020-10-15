@@ -33,12 +33,9 @@ android {
     productFlavors {
         dev {
             dimension = 'stage'
-
-            applicationIdSuffix = '.dev'
         }
         prod {
             dimension = 'stage'
-
         }
     }
 }

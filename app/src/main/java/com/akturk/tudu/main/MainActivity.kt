@@ -9,6 +9,7 @@ import com.akturk.tudu.R
 import com.akturk.tudu.ViewModelSupport
 import com.akturk.tudu.add.AddActivity
 import com.akturk.tudu.databinding.ActivityMainBinding
+import com.akturk.tudu.map.MapActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.FlowPreview
 
@@ -52,5 +53,9 @@ class MainActivity : BaseActivity(R.layout.activity_main),
 
     override fun presentAddScreen() {
         AddActivity.start(this)
+    }
+
+    override fun presentMapScren() {
+        MapActivity.start(this)
     }
 }

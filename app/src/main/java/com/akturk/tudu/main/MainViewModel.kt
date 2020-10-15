@@ -61,9 +61,14 @@ class MainViewModel : ViewModel() {
         presenter?.presentAddScreen()
     }
 
+    fun map() {
+        presenter?.presentMapScren()
+    }
+
     interface Presenter {
         fun presentApplication(): Application
         fun presentItems(items: List<TodoItem>)
         fun presentAddScreen()
+        fun presentMapScren()
     }
 }
