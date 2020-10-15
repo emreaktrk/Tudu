@@ -18,8 +18,28 @@ android {
         versionName "1.0"
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            storeFile file('keystores/debug.jks')
+            storePassword '123456'
+            keyAlias 'tudu'
+            keyPassword '123456'
+        }
         release {
+            storeFile file('keystores/release.jks')
+            storePassword '123456'
+            keyAlias 'tudu'
+            keyPassword '123456'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.release
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -34,6 +54,18 @@ android {
     buildFeatures {
         dataBinding true
         viewBinding true
+    }
+    flavorDimensions 'stage'
+    productFlavors {
+        dev {
+            dimension = 'stage'
+
+            applicationIdSuffix = '.dev'
+        }
+        prod {
+            dimension = 'stage'
+
+        }
     }
 }
 
