@@ -1,6 +1,7 @@
 ## UPDATED
 - Todo ekleme ekranı ve alarm özelliği eklendi.
 - Staging
+- Map (LatLng'lar random oldugu icin haritada gozukemyebilir)
 
 # Tudu
 
